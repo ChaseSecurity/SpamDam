@@ -1,0 +1,1102 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="The first comprehensive security study on representative port forwarding services(PFS).">
+  <meta name="keywords" content="Port Forwarding Services, Cyber Security">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpamDam</title>
+  <style>
+	.figure-container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.subfigure {
+		width: 45%;
+		text-align: center;
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+</style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+
+  <!--   function gtag() { -->
+  <!--     dataLayer.push(arguments); -->
+  <!--   } -->
+
+  <!--   gtag('js', new Date()); -->
+
+  <!--   gtag('config', 'G-'); -->
+  <!-- </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SpamDam: Towards Privacy-Preserving and Adversary-Resistant SMS Spam Detection</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+	      <a href="https://nuistlyk.github.io">Yekai Li</a><sup>1</sup>,
+	    </span>
+            <span class="author-block">
+              RuFan Zhang<sup>1</sup>,
+	    </span>
+            <span class="author-block">
+              Wenxin Rong<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xianghang.me">Xianghang Mi</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Science and Technology of China,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2404.09481.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.09481"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ChaseSecurity/SpamDam"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block"> -->
+              <!--   <a href="#" -->
+              <!--      class="external-link button is-normal is-rounded is-dark"> -->
+              <!--     <span class="icon"> -->
+              <!--         <i class="far fa-images"></i> -->
+              <!--     </span> -->
+              <!--     <span>Data</span> -->
+              <!--     </a> -->
+	      <!-- </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+			In this study, we introduce SpamDam, a SMS spam detection framework designed to overcome key challenges in detecting and understanding SMS spam, such as the lack of public SMS spam datasets, increasing privacy concerns of collecting SMS data, and the need for adversary-resistant detection models. SpamDam comprises four innovative modules: an SMS spam radar that identifies spam messages from online social networks(OSNs); an SMS spam inspector for statistical analysis; SMS spam detectors(SSDs) that enable both central training and federated learning; and an SSD analyzer that evaluates model resistance against adversaries in realistic scenarios.
+		  </br>
+		</br>
+			Leveraging SpamDam we have compiled over 76K SMS spam messages from Twitter and Weibo between 2018 and 2023, forming the largest dataset of its kind. This dataset has enabled new insights into recent spam campaigns and the training of high-performing binary and multi-label classifiers for spam detection. Furthermore, effectiveness of federated learning has been well demonstrated to enable privacy-preserving SMS spam detection. Additionally, we have rigorously tested the adversarial robustness of SMS spam detection models, introducing the novel reverse backdoor attack, which has shown effectiveness and stealthiness in practical tests
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered"> -->
+    <!--   <div class="column is-four-fifths"> -->
+    <!--     <h2 class="title is-3">Video</h2> -->
+    <!--     <div class="publication-video"> -->
+    <!--       <iframe src="#" -->
+    <!--               frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section" id="SpamDam">
+  <div class="container is-max-desktop content">
+    <div class="columns is-centered">
+      <div class="column is-full">
+	<h2 class="title is-3">The Framework of SpamDam</h2>
+	<p>
+		SpamDam, an end-to-end framework to facilitate privacy-preserving and adversary-resistant SMS spam detection, which is made possible through a set of four novel modules as summarized below. The SpamDam is bootstraped by a module named the SMS spam radar (SpamRadar) which enables a continual discovery of SMS spam messages as reported on different OSNs. Then, given spam messages identified by the SpamRadar, the second module named the SMS spam inspector will analyze these spam messages along with their metadata attributes (e.g., the reporting time, and the natural language), in an attempt to gain a deep understanding of up-to-date SMS spam messages with regards to their scale, categories, and the temporal evolution, etc. Furthermore, multiple SMS spam classifiers will be built up and comprehensively evaluated through the third module named the SMS spam detectors (SSDs). This module allows us not only to train multiple variants of a binary SMS spam classifier but also multi-class and multi-label SMS spam classifiers. Also, it enables us to evaluate, for the first time, the feasibility of federated learning for privacy-preserving training of SMS spam detection models.  Then, given a set of SMS spam detection models, the fourth module named the SSD analyzer is designed to systematically evaluate the adversarial resistance of these models with regards to adversarial examples and poisoning attacks. 
+	</p>
+	<!-- The figure for PFS scenario with 80% width -->
+	<div class="container is-max-desktop content has-text-centered">
+	  <div class="columns is-centered">
+	    <div class="column is-four-fifths">
+	      <figure class="image">
+		<img src="./static/images/spamdam_arxiv.svg" alt="Frame of SpamDam">
+	      </figure>
+	    </div>
+	  </div>
+	  <!-- <div class="subtitle is-6">The PFS Usage Scenario</div> -->
+	</div>
+      </div>
+    </div>
+
+</section>
+
+<section class="section" id="performance of radar">
+	<div class="container is-max-desktop content">
+  <h2 class="title is-3">The Performance of SpamRadar</h2>
+  <div class="columns is-centered">
+	<div class="column is-two-fifths">
+  <table class="table is-narrow">
+	<thead>
+	  <tr>
+		<th class="has-text-left">Testing Dataset</th>
+		<th>Accuracy</th>
+		<th>Precision</th>
+		<th>Recall</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="has-text-left">Twitter</td>
+		<td>95.5%</td>
+		<td>97.8%</td>
+		<td>92.7%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">Weibo</td>
+		<td>99.5%</td>
+		<td>93.3%</td>
+		<td>100.0%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">Reddit</td>
+		<td>85.5%</td>
+		<td>97.7%</td>
+		<td>83.0%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">Xiaohongshu</td>
+		<td>88.5%</td>
+		<td>84.0%</td>
+		<td>92.3%</td>
+	  </tr>
+	</tbody>
+  </table>
+	</div>
+  </div>
+  <h3 class="title is-4">End-to-end performance on Twitter and Weibo</h3>
+  <div class="columns is-centered">
+	<!-- <div class="column is-two-thirds"> -->
+	<!-- <div class="column is-four-fifths">
+	  <figure class="image">
+		<img src="./static/images/ngrok_protocol.svg" alt="Ngrok Protocol">
+	  </figure>
+	</div> -->
+	<!-- <div class-"column is-one-third"> -->
+  </div>
+  <div class="columns is-centered">
+	<div class="column">
+	  <p>To assess the real-world effectiveness, the while SpamRadar pipeline was applied to posts collected via the OSN-specific collector from both Weibo and Twitter. Given posts predicted through the pipeline, 200 posts per OSN were randomly sampled for manual validation. As shown in table above , our pipeline exhibits robust performance for both OSN platforms. On Twitter, it achieves an end-to-end precision of 97.8%, i.e., 97.8% images predicted as SMS spam screenshots are true cases. On the other hand, the precision slightly drops to 93.3% on Weibo. </p>
+	</div>
+  </div>
+  
+		<h3 class="title is-4">Generalization to other OSNs</h3>
+  <div class="columns is-centered">
+	<!-- <div class="column is-four-fifths">
+	  <figure class="image">
+		<img src="./static/images/oray_protocol.svg" alt="Oray Protocol">
+	  </figure>
+	</div> -->
+  </div>
+  <div class="columns is-centered">
+	<div class="column">
+	  <p><i>SpamRadar</i> is designed to be OSN-agnostic, i.e., it can be extended to new OSNs with OSN-specific crawling drivers. This has been further demonstrated through our collection and analysis of data from Reddit and Xiaohongshu, thereby affirming the generalization of our pipeline.</p>
+
+	  <p>Given the constraints presented by the Reddit APIs, we resorted to manually identifying spam-related posts that contain images, using the same meticulously crafted keywords employed in collection of Twitter/Weibo posts. For Xiaohongshu, we developed a specialized crawling driver to gather similar spam-reporting posts, adhering to the same keyword set. Given these posts, the spam radar was applied, which was followed by manual validation for 200 sampled predictions for each OSN. As shown in table above, the <i>SpamRadar</i> pipeline has achieved a decent performance for both OSN platforms. Particularly, a high precision of 97.7% (127 out of 130 predicted SMS spam screenshots) is achieved for Reddit while the recall of 83.0% (127 out of 153 true SMS spam screenshots) is still acceptable. On one hand, these results demonstrate the generalization of the {\radar} to different OSNs. On the other hand, fine tuning with OSN-specific ground truth can still further enhance the pipeline, e.g., improving the precision for Xiaohongshu. </p>
+	</div>
+  </div>
+	</div>
+  </div>
+</div>
+
+</section>
+
+<section class="section" id="performance of binary classifier">
+	<div class="container is-max-desktop content">
+  <h2 class="title is-3">Binary SMS Spam Classification</h2>
+  
+  <h3 class="title is-4">Performance of Binary Classifier</h3>
+  <div class="columns is-centered">
+	<div class="column is-three-fifths">
+  <table class="table is-narrow">
+	<!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	<thead>
+	  <!-- <tr>
+		<!-- <th class="has-text-left">Model</th> -->
+		<!-- <th class=""></th>
+		<th colspan="3">Test<sub>All</sub></th>
+	  </tr>  -->
+	  <tr>
+		<th class="has-text-left">Model</th>
+		<th>Precision</th>
+		<th>Recall</th>
+		<th>False Positive Rate</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="has-text-left">CNN<sub>All</sub></td>
+		<td>98.86%</td>
+      <td>98.83%</td>
+      <td>10.05%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">BERT<sub>All</sub></td>
+		<td><strong>99.28%</strong></td>
+      <td><strong>99.53%</strong></td>
+      <td><strong>7.49%</strong></td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">BERT<sub>All-Twitter</sub></td>
+		<td>98.68%</td>
+      <td>99.29%</td>
+      <td>13.75%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">BERT<sub>All-Weibo</sub></td>
+		<td>99.24%</td>
+      <td>99.45%</td>
+      <td>7.92%</td>
+	  </tr>
+	</tbody>
+  </table>
+	</div>
+  </div>
+  <div class="columns is-centered">
+	<div class="column">
+		<p>A direct performance comparison among the four models are listed in Table above. As we can see that BERT-based classification models have achieved better performance than the previously SOTA CNN model. Particularly, when evaluating on Test<sub>All</sub>, our BERT<sub>All</sub> model has increased the recall by 0.7% and the precision by 0.42% while decreasing the false positive rate by 2.56%. </p>
+
+		<p>Another key observation is that SMS spams reported on Twitter contribute most to the performance of BERT<sub>All</sub>. Particularly, when evaluated on Test<sub>All</sub>, the model BERT<sub>All-Twitter</sub> trained without Twitter-reported SMS spam messages has the recall (99.29%) lower by 0.24%, the precision lower by 0.60%, and the false positive rate higher by 6.26%, when compared with BERT<sub>All</sub> (99.53%). Instead, the model BERT<sub>All-Weibo</sub> trained with Twitter-reported spams but not Weibo-reported spams have almost the same performance with BERT<sub>All</sub>. 
+		  A reasonable explanation is that SMS spam samples reported on Weibo are mostly distributed in China and cannot well represent the data distribution of globe-wide SMS spam campaigns. Thus, the model (BERT<sub>All-Twitter</sub>) trained mostly on Weibo-reported spam messages cannot well capture Twitter-reported global spam messages.</p>
+	</div>
+  </div>
+  
+		<h3 class="title is-4">Comparison with Publicly Available Anti-spam Options</h3>
+		<div class="columns is-centered">
+			<div class="column is-two-fifths">
+		  <table class="table is-narrow">
+			<thead>
+			  <tr>
+				<th class="has-text-left">Anti-spam</th>
+				<th>Accuracy</th>
+				<th>Precision</th>
+				<th>Recall</th>
+				<th>FPR</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td class="has-text-left">GPT-4</td>
+				<td>89.5%</td>
+				<td>89.1%</td>
+				<td>90.0%</td>
+				<td>11.0%</td>
+			  </tr>
+			  <tr>
+				<td class="has-text-left">OOPSpam</td>
+				<td>61.5%</td>
+				<td>83.3%</td>
+				<td>29.7%</td>
+				<td>6.1%</td>
+			  </tr>
+			  <tr>
+				<td class="has-text-left">Perspective</td>
+				<td>83.0%</td>
+				<td>75.4%</td>
+				<td>98.0%</td>
+				<td>32.0%</td>
+			  </tr>
+			  <tr>
+				<td class="has-text-left">BERT<sub>All</sub></td>
+				<td>95.0%</td>
+				<td>90.9%</td>
+				<td>100.0%</td>
+				<td>10.0%</td>
+			  </tr>
+			  <tr>
+				  <td class="has-text-left">BERT<sub>balance</sub></td>
+				  <td>97.0%</td>
+				  <td>96.1%</td>
+				  <td>98.0%</td>
+				  <td>4.0%</td>
+				</tr>
+			</tbody>
+		  </table>
+			</div>
+		  </div>
+  <div class="columns is-centered">
+	<div class="column">
+		<p>The comparative performance results are summarized in table above. Among all the three anti-spam candidates except for ones implemented by our study, GPT-4 demonstrates superior accuracy in spam detection, while OOPSpam exhibits a low false positive rate of 6.1%, albeit at the cost of a low recall, suggesting a propensity to classify SMS messages as non-spam. Conversely, Perspective reports the highest false positive rate, indicating a tendency towards generating false alarms, aligning with findings reported in SpamHunter.
+		Compared to public anti-spam options, the models developed in this study exhibit superior performance in both accuracy and precision. This enhancement is likely due to the specialized focus on SMS spam messages, which is not the primary target for many generic anti-spam services, resulting in their less satisfactory results. Specifically, when examining the BERT<sub>All</sub> and BERT<sub>balance</sub> models, the latter demonstrates the benefits of incorporating a balanced dataset. BERT<sub>balance</sub>not only achieves the highest precision of 96.1% but also maintains a significantly lower false positive rate of 4.0%. These results underscore the importance of including diverse-enough non-spam texts when training anti-spam models.</p> 
+	</div>
+  </div>
+	</div>
+  </div>
+</div>
+
+</section>
+
+<section class="section" id="multi-label">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Multi-Label SMS Spam Classification</h2>
+    <h3 class="title is-4">Multi-class Classifier</h3>
+  <div class="columns is-centered">
+	<div class="column is-three-fifths">
+  <table class="table is-narrow">
+	<!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	<thead>
+	  <!-- <tr>
+		<!-- <th class="has-text-left">Model</th> -->
+		<!-- <th class=""></th>
+		<th colspan="3">Test<sub>All</sub></th>
+	  </tr>  -->
+	  <tr>
+		<th class="has-text-left">Spam Category</th>
+		<th>% Groundtruth</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="has-text-left">Promotion</td>
+		<td>28.21%</td>
+		<td>88.57%</td>
+		<td>90.47%</td>
+		<td>89.23%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">P-Gambling</td>
+		<td>1.49%</td>
+      <td>88.69%</td>
+      <td>88.58%</td>
+      <td>88.63%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">P-Sex</td>
+		<td>1.64%</td>
+      <td>86.66%</td>
+      <td>86.11%</td>
+      <td>86.30%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Finance</td>
+		<td>28.16%</td>
+      <td>88.33%</td>
+      <td>76.67%</td>
+      <td>79.81%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Account</td>
+		<td>24.24%</td>
+		<td>83.37%</td>
+		<td>86.00%</td>
+		<td>84.27%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Insurance</td>
+		<td>1.59%</td>
+		<td>94.40%</td>
+		<td>92.46%</td>
+		<td>93.32%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Delivery</td>
+		<td>7.79%</td>
+		<td>89.36%</td>
+		<td>96.67%</td>
+		<td>92.63%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Acquaintance</td>
+		<td>1.04%</td>
+		<td>96.00%</td>
+		<td>73.33%</td>
+		<td>80.97%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-COVID</td>
+		<td>1.39%</td>
+		<td>95.00%</td>
+		<td>81.00%</td>
+		<td>86.11%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Prize</td>
+		<td>4.96%</td>
+		<td>87.68%</td>
+		<td>89.37%</td>
+		<td>88.48%</td>
+	  </tr>
+	</tbody>
+  </table>
+	</div>
+  </div>
+  <div class="columns is-centered">
+	<div class="column">
+		<p>Similar to the binary SMS spam classifier, we choose the paradigm of pre-training and fine-tuning, especially considering our groundtruth dataset is of a small size. Then, the same BERT multilingual language model is selected as the pre-trained model. During the fine-tuning, the number of epochs was set as 10, with the batch size as 16, the learning rate as 1.207e-5, and the maximum sequence length as 128. The resulting model was trained on 80% of our groundtruth dataset. Evaluation upon the left 20% samples revealed a micro recall of 87.95% and a micro precision of 87.95%. Category-specific performance metrics are listed in table above.  As we can see, multi-class SMS spam classification is promising. Particularly, the category-wise precision ranges from 83.33% for F-Finance to 96.00% for F-Acquaintance.</p>
+	</div>
+  </div>
+
+  <h3 class="title is-4">Multi-label Classifier</h3>
+  <div class="columns is-centered">
+	<div class="column is-three-fifths">
+  <table class="table is-narrow">
+	<!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	<thead>
+	  <!-- <tr>
+		<!-- <th class="has-text-left">Model</th> -->
+		<!-- <th class=""></th>
+		<th colspan="3">Test<sub>All</sub></th>
+	  </tr>  -->
+	  <tr>
+		<th class="has-text-left">Spam Category</th>
+		<th>% Groundtruth</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="has-text-left">Promotion</td>
+		<td>49.93%</td>
+                <td>85.71%</td>
+                <td>90.45%</td>
+                <td>87.72%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">P-Gambling</td>
+		<td>1.49%</td>
+                <td>40.00%</td>
+                <td>80.00%</td>
+                <td>53.33%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">P-Sex</td>
+		<td>1.64%</td>
+		<td>85.71%</td>
+		<td>100.00%</td>
+		<td>92.31%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Finance</td>
+		<td>33.91%</td>
+                <td>87.92%</td>
+                <td>85.62%</td>
+                <td>86.75%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Account</td>
+		<td>28.26%</td>
+                <td>80.17%</td>
+                <td>82.20%</td>
+                <td>81.17%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Insurance</td>
+		<td>1.83%</td>
+		<td>100.00%</td>
+		<td>100.00%</td>
+		<td>100.00%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Delivery</td>
+		<td>7.24%</td>
+                <td>92.86%</td>
+                <td>86.67%</td>
+                <td>89.66%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Acquaintance</td>
+		<td>1.09%</td>
+                <td>100.00%</td>
+                <td>33.33%</td>
+                <td>50.00%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-COVID</td>
+		<td>1.44%</td>
+                <td>100.00%</td>
+                <td>66.67%</td>
+                <td>80.00%</td>
+	  </tr>
+	  <tr>
+		<td class="has-text-left">F-Prize</td>
+		<td>5.45%</td>
+                <td>81.82%</td>
+                <td>47.37%</td>
+                <td>60.00%</td>
+	  </tr>
+	</tbody>
+  </table>
+	</div>
+  </div>
+  <div class="columns is-centered">
+	<div class="column">
+		<p>Following the multiclass classifier, the same model architecture as well as training parameters were utilized to train this multi-label classifier. The resulting model has achieved a label ranking average precision (LRAP) score of 0.9281, whereby the LRAP is a well-acknowledged metric for multi-label classification along with the best score being 1.
+    
+    Another metric we consider is the Hamming score. Considering \( N \) samples in the testing dataset, assume \( Y_i \) denotes the set of labels for the \( i^{th} \) sample, and \( \hat{Y}_i \) denotes the predicted labels for the same sample. Then, the Hamming score is calculated as \( \frac{1}{N}\sum_{i = 1}^{N}\frac{|Y_i \cap \hat{Y}_i|}{|Y_i \cup \hat{Y}_i|} \), and a Hamming score of 1 denotes a model has got 100% predictions right.
+
+    Then, when evaluated on the testing dataset, our multi-label spam classifier has achieved a Hamming score of 0.7940.
+
+    We also measured the category-wise precision and recall, as shown in table above. Overall, we can conclude that both multi-class and multi-label SMS spam classification tasks are promising and feasible, despite a non-negligible variance across spam categories.</p>
+
+	</div>
+  </div>
+</section>
+
+
+<section class="section" id="federated learning">
+	<div class="container is-max-desktop content">
+	  <h2 class="title is-3">SMS Spam Detection via Federated Learning </h2>
+	<div class="columns is-centered">
+	  <div class="column is-three-fifths">
+	<table class="table is-narrow">
+	  <!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	  <thead>
+		<tr>
+            <th>Training Type</th>
+            <th>Dirichlet</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>Accuracy</th>
+        </tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <!-- <td class="has-text-left">Promotion</td> -->
+		  <td rowspan="1">Central (BERT All)</td>
+            <td>N/A</td>
+            <td>99.28%</td>
+            <td>99.53%</td>
+            <td>98.91%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">P-Gambling</td> -->
+		  <td rowspan="3">Cross-Device FL</td>
+            <td>α = 0.5</td>
+            <td>99.09%</td>
+            <td>99.45%</td>
+            <td>98.73%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">P-Sex</td> -->
+		  <td>α = 1</td>
+            <td>99.01%</td>
+            <td>99.35%</td>
+            <td>98.56%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">F-Finance</td> -->
+		  <td>α = 10</td>
+		  <td>98.88%</td>
+		  <td>99.20%</td>
+		  <td>98.29%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">F-Account</td> -->
+		  <td rowspan="3">Cross-Silo FL</td>
+            <td>α = 0.5</td>
+            <td>99.24%</td>
+            <td>99.43%</td>
+            <td>98.80%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">F-Insurance</td> -->
+		  <td>α = 1</td>
+            <td>99.27%</td>
+            <td>99.53%</td>
+            <td>98.91%</td>
+		</tr>
+		<tr>
+		  <!-- <td class="has-text-left">F-Delivery</td> -->
+		  <td>α = 10</td>
+		  <td>99.31%</td>
+		  <td>99.53%</td>
+		  <td>98.92%</td>
+		</tr>
+	  </tbody>
+	</table>
+	  </div>
+	</div>
+
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>Table showed above presents the performance stats for FL-trained binary SMS spam classifiers under different quantity-based Dirichlet distributions. And we can see that the performance of FL-trained models is comparable to that of the centrally trained counterparts.</p>
+  
+	  </div>
+	</div>
+  </section>
+
+
+  <section class="section" id="adversarial">
+	<div class="container is-max-desktop content">
+	  <h2 class="title is-3">The Adversarial Resistance of SMS Spam Classification</h2>
+	  <h3 class="title is-4">Adversarial Examples</h3>
+	  <div class="figure-container">
+        <div class="subfigure">
+            <img src="static/images/adversarial_examples_default_setting.svg" alt="Impact of Four Imperceptible Attacks">
+            <p>(a) The attack impact of four imperceptible attacks of adversarial examples.</p>
+        </div>
+        <div class="subfigure">
+            <img src="static/images/adversarial_examples_default_setting_different_lang.svg" alt="Impact of Deletion Attack on Different Languages">
+            <p>(b) The attack impact of the imperceptible deletion attack for spam messages of different languages.</p>
+        </div>
+    </div>
+    <div class="figure-container">
+        <div class="subfigure">
+            <img src="static/images/adversarial_examples_default_setting_different_class.svg" alt="Impact of Deletion Attack on Different Categories">
+            <p>(c) The attack impact of the imperceptible deletion attack for spam messages of different categories.</p>
+        </div>
+        <div class="subfigure">
+            <img src="static/images/adversarial_training.svg" alt="Impact of Adversarial Training">
+            <p>(d) The defensive impact of adversarial training.</p>
+        </div>
+    </div>
+    <p style="text-align:center;">Figure 1. The effectiveness of adversarial examples and adversarial training on SMS spam detection.</p>
+
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>We also observed that the attack success rate can vary significantly when encountering spam messages of different languages or different categories. 
+			Figure 1(b) presents how the success rate of the imperceptible deletion attacks varies across four languages with most spam messages observed. And we can see that the imperceptible deletion attack is only effective for English/Spanish spam messages, but has zero success rates for both Chinese and Indonesian, which is applicable to all the three effective imperceptible attacks. 
+			Then, when it comes to different spam categories, as shown in Figure 1(c), these attacks work best for the  spam category of Promotion, which is expected since promotional spam messages tend to reside closest to the decision plane between spam messages and non-spam ones. Particularly, under the attack budget of 5 perturbations,  the imperceptible deletion attack has achieved a success rate of 15% for spam messages belonging to Promotion while it is only 3% for F-Account.</p>
+
+		<p>We then evaluated the robustness of this adversarially trained spam detection model, using the aforementioned 250 SMS spam messages. As illustrated in Figure 1(d), adversarial training has significantly lowered the attacking success rates for all the three imperceptible attacks. For instance, adversarial training has lowered the success rate of deletion attack from 20.0% to 4.80%.</p>
+	  </div>
+	</div>
+  
+	<h3 class="title is-4">Poisoning Attacks</h3>
+	<h4 class="title is-5">Poisoning scenario I: the untargeted poisoning attack</h4>
+	<div class="columns is-centered">
+	  <div class="column is-three-fifths">
+	<table class="table is-narrow">
+	  <!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	  <thead>
+		<tr>
+            <th rowspan="2">Metrics</th>
+            <th colspan="7">The Poisoning Rate</th>
+        </tr>
+        <tr>
+            <!-- Individual poisoning rates as separate headers -->
+            <th>0</th>
+            <th>1%</th>
+            <th>5%</th>
+            <th>10%</th>
+            <th>45%</th>
+            <th>50%</th>
+            <th>60%</th>
+        </tr>
+	  </thead>
+	  <tbody>
+		<tr>
+            <td>Accuracy</td>
+            <td>98.91%</td>
+            <td>97.52%</td>
+            <td>97.47%</td>
+            <td>97.13%</td>
+            <td>97.45%</td>
+            <td>97.27%</td>
+            <td>96.56%</td>
+        </tr>
+        <tr>
+            <td>Precision</td>
+            <td>99.28%</td>
+            <td>99.13%</td>
+            <td>99.26%</td>
+            <td>99.27%</td>
+            <td>99.31%</td>
+            <td>97.30%</td>
+            <td>96.48%</td>
+        </tr>
+        <tr>
+            <td>Recall</td>
+            <td>99.53%</td>
+            <td>98.11%</td>
+            <td>97.93%</td>
+            <td>97.54%</td>
+            <td>97.86%</td>
+            <td>99.74%</td>
+            <td>99.83%</td>
+        </tr>
+        <tr>
+            <td>FPR</td>
+            <td>7.49%</td>
+            <td>7.99%</td>
+            <td>6.84%</td>
+            <td>6.70%</td>
+            <td>6.34%</td>
+            <td>25.77%</td>
+            <td>33.91%</td>
+        </tr>
+	  </tbody>
+	</table>
+	  </div>
+	</div>
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>Table showed above illustrates how the poisoned spam detection model varies in its performance when evaluated under different poisoning rates. As we can see, a <i>practical</i> untargeted poisoning attack can degrade the recall performance to a notable extent but has almost no impact on the precision. Specifically, even the injection of only 1% poisoned samples (p = 1%) can degrade the recall by 1.42%, but the impact on the precision is within the margin of error. Then, as the p is over 50% which is considered impractical, we start to see a notable drop in precision, and more importantly, the significant increase in the false positive rate. Particularly, as the p has increased from 45% to 50%, the false positive rate has jumped from 6.34% to 25.77%. Regarding what p is practical, 
+			we consider a practical poisoning attacker that has control of up to hundreds of OSN accounts. We thus consider a practical poisoning rate as p ≤ 5%. Under such a practical range of the poisoning rate, we argue that this untargeted poisoning attack has minor attack impact on our SMS spam detection model, i.e., up to 1.60% drop in recall and almost no impact on the precision and false positive rate. </p>
+  
+	  </div>
+	</div>
+
+	<h4 class="title is-5">Poisoning scenario II: reverse backdoor attack through reporting stamped benign messages as spam</h4>
+	<div class="figure-container">
+        <div class="subfigure">
+            <img src="static/images/reverse_backdoor_with_benign_messages_success_rate.svg">
+            <p>(a) The attack success rate.</p>
+        </div>
+        <div class="subfigure">
+            <img src="static/images/senario3-2.svg">
+            <p>(b) The impact on the model performance (the decrease in accuracy).</p>
+        </div>
+    </div>
+    <p style="text-align:center;">Figure 2. The effectiveness of reverse backdoor attacks via injecting stamped <strong>benign</strong> messages under the label of spam.</p>
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>Figure 2(a)  presents the backdoor effect in terms of mis-classifying benign testing messages that are stamped with the respective backdoor word (e.g., <i>google</i>), while Figure 2(b) presents the impact of these backdoor attacks on the overall model performance as gained from evaluation on the held-out testing dataset. And we can conclude that this reverse backdoor attack is very effective in terms of misleading the model to falsely alarm stamped but benign messages as spam, while maintaining a low impact on the overall model performance.  Particularly, when the p is just as low as 1%, the attack success rate can be as high as 54% while the impact on the overall accuracy is just 1.58%. Then, when the $p$ is larger than 15%, the poisoned model tends to mis-classify all stamped benign messages as spam.</p>
+  
+	  </div>
+	</div>
+
+	<h4 class="title is-5">Poisoning scenario III: reverse backdoor attack through reporting stamped spam messages</h4>
+	<div class="columns is-centered">
+	  <div class="column is-three-fifths">
+	<table class="table is-narrow">
+	  <!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	  <thead>
+		<!-- <tr>
+		  <!-- <th class="has-text-left">Model</th> -->
+		  <!-- <th class=""></th>
+		  <th colspan="3">Test<sub>All</sub></th>
+		</tr>  -->
+		<tr>
+			<th rowspan="2">Class</th>
+            <th colspan="6">The Poisoning Rate</th>
+		</tr>
+		<tr>
+            <!-- The individual poisoning rates as separate headers -->
+            <th>1%</th>
+            <th>5%</th>
+            <th>10%</th>
+            <th>15%</th>
+            <th>20%</th>
+            <th>40%</th>
+        </tr>
+	  </thead>
+	  <tbody>
+		<tr>
+            <td>Benign</td>
+            <td>0.0167</td>
+            <td>0.0196</td>
+            <td>0.0213</td>
+            <td>0.0272</td>
+            <td>0.0250</td>
+            <td>0.0274</td>
+        </tr>
+        <tr>
+            <td>Spam</td>
+            <td>0.0156</td>
+            <td>0.0157</td>
+            <td>0.0165</td>
+            <td>0.0175</td>
+            <td>0.0163</td>
+            <td>0.0200</td>
+        </tr>
+	  </tbody>
+	</table>
+	  </div>
+	</div>
+	<div class="columns is-centered">
+	  <div class="column">
+		<p>Similar to poisoning scenario II, backdooring via reporting stamped spam messages can achieve a high success rate when the poisoning rate is practically low (e.g., <span style="font-family: monospace;">p ≤ 5%</span>). Along with the high backdoor success rate is the low impact on the overall performance, which is no more than 2% in accuracy decrease when <span style="font-family: monospace;">p ≤ 30%</span>. A table also presents a direct comparison between backdooring with benign messages and backdooring with spam messages, with regards to their impact on overall model performance. As we can see, backdooring with spam messages consistently incurs a lower impact on model performance, and is thus more stealthy than backdooring with benign messages. By now, we can conclude that SMS spam detection built upon crowdsourced SMS spam messages is vulnerable to practical reverse backdoor attacks.</p>
+  
+	  </div>
+	</div>
+  </section>
+
+  <section class="section" id="concept drift">
+	<div class="container is-max-desktop content">
+	  <h2 class="title is-3">The Effect of Concept Drift </h2>
+	<div class="columns is-centered">
+	  <div class="column is-four-fifths">
+	<table class="table is-narrow">
+	  <!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	  <thead>
+		<tr>
+            <th>Model</th>
+            <th>UCI</th>
+            <th>ExAIS</th>
+            <th>2018Q1</th>
+            <th>2019Q1</th>
+            <th>2020Q1</th>
+            <th>2021Q1</th>
+            <th>2022Q1</th>
+            <th>2023Q1</th>
+        </tr>
+	  </thead>
+	  <tbody>
+		<tr>
+            <td>Model<sub>2012</sub></td>
+            <td>99.03%</td>
+            <td>62.56%</td>
+            <td>76.12%</td>
+            <td>77.67%</td>
+            <td>60.34%</td>
+            <td>82.60%</td>
+            <td>70.97%</td>
+            <td>78.13%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>2015</sub></td>
+            <td>97.87%</td>
+            <td>88.71%</td>
+            <td>72.64%</td>
+            <td>68.41%</td>
+            <td>52.29%</td>
+            <td>73.48%</td>
+            <td>66.18%</td>
+            <td>70.27%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>2018</sub></td>
+            <td>98.07%</td>
+            <td>89.47%</td>
+            <td>99.00%</td>
+            <td>99.05%</td>
+            <td>98.77%</td>
+            <td>98.65%</td>
+            <td>98.69%</td>
+            <td>98.28%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>2021</sub></td>
+            <td>97.10%</td>
+            <td>88.20%</td>
+            <td>99.50%</td>
+            <td>100%</td>
+            <td>99.66%</td>
+            <td>99.49%</td>
+            <td>99.85%</td>
+            <td>100%</td>
+        </tr>
+	  </tbody>
+	</table>
+	  </div>
+	</div>
+
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>Table showed above presents the performance of these four models in terms of recall, when evaluated against spam datasets of different time periods. As you can see, the decay in performance varies significantly across models. Particularly, Model<sub>2012</sub> and Model<sub>2015</sub> have decayed significantly in the recall performance when predicting spam messages of 2018 or later. For instance,  Model<sub>2012</sub> has achieved a initial recall of 94.85% when evaluated on the testing part of the UCI dataset. However, its performance degrades to 77.67% , 82.6%, and 70.97%  when evaluated respectively on spams observed in 2019Q1, 2021Q1, and 2022 Q1. On the other hand, the two models trained on less outdated datasets are subject to less degradation in performance. Particularly, compared to Model<sub>2012</sub>,  Model<sub>2018</sub> has achieved a recall higher by 27.72% when evaluated on 2022Q1 and the increase in recall is 28.88% for Model<sub>2021</sub>. These results not only qualify the existence of concept drift but also quantify its impact in model aging in the area of  SMS spam detection,  which strongly highlights the necessity of maintaining an ever-updating SMS spam dataset and keeping retraining the detection models on fresh spam messages. </p>
+  
+	  </div>
+	</div>
+  </section>
+
+  <section class="section" id="transferability">
+	<div class="container is-max-desktop content">
+	  <h2 class="title is-3">The Transferability of SMS Spam Detection Models</h2>
+	  <h3 class="title is-4">SMS/Email spam classification</h3>
+	<div class="columns is-centered">
+	  <div class="column is-three-fifths">
+	<table class="table is-narrow">
+	  <!-- <caption>A performance comparison among binary SMS spam classification models.</caption> -->
+	  <thead>
+		<tr>
+            <th rowspan="2">Model</th>
+            <th colspan="2">Test<sub>SMS</sub></th>
+            <th colspan="2">Test<sub>Email</sub></th>
+            <th colspan="2">Test<sub>SMS</sub> &amp; Test<sub>Email</sub></th>
+        </tr>
+        <tr>
+            <!-- Individual headers for precision and recall under each test type -->
+            <th>Prec.</th>
+            <th>Recall</th>
+            <th>Prec.</th>
+            <th>Recall</th>
+            <th>Prec.</th>
+            <th>Recall</th>
+        </tr>
+	  </thead>
+	  <tbody>
+		<tr>
+            <td>Model<sub>SMS</sub></td>
+            <td>99.28%</td>
+            <td>99.53%</td>
+            <td>55.13%</td>
+            <td>85.03%</td>
+            <td>87.92%</td>
+            <td>96.61%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>Email</sub></td>
+            <td>91.57%</td>
+            <td>78.62%</td>
+            <td>99.68%</td>
+            <td>94.30%</td>
+            <td>92.58%</td>
+            <td>82.14%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>SMS &amp; Email</sub></td>
+            <td>99.15%</td>
+            <td>99.48%</td>
+            <td>98.69%</td>
+            <td>99.37%</td>
+            <td>99.10%</td>
+            <td>99.40%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>SMS→Email</sub></td>
+            <td>97.38%</td>
+            <td>97.02%</td>
+            <td>99.03%</td>
+            <td>99.10%</td>
+            <td>97.78%</td>
+            <td>97.41%</td>
+        </tr>
+        <tr>
+            <td>Model<sub>Email→SMS</sub></td>
+            <td>99.21%</td>
+            <td>99.18%</td>
+            <td>76.80%</td>
+            <td>91.35%</td>
+            <td>94.62%</td>
+            <td>97.57%</td>
+        </tr>
+	  </tbody>
+	</table>
+	  </div>
+	</div>
+
+	<div class="columns is-centered">
+	  <div class="column">
+		  <p>Table showed above presents the performance of these models when evaluated against three different testing datasets, namely, Test<sub>SMS</sub>, Test<sub>Email</sub>, and the combination of both. As we can see, the model trained solely on SMS spam data (Model<sub>SMS</sub>) achieves a recall of 85.00% and a precision of 55.03% when evaluated on Test<sub>Email</sub>, which is likely due to that SMS spam and Email spam still differ in their respective data distribution. However, When evaluated on Test<sub>Email</sub>, Model<sub>SMS &amp; Email</sub> achieves a comparable precision and a higher recall of 99.35% while it is only 94.34% for Model<sub>Email</sub>. The same performance improvement is also observed for  Model<sub>Email→SMS</sub>, which suggests the SMS spam dataset can benefit the detection of Email spam while the reverse effect from Email spam to SMS spam is not obvious. </p>
+  
+	  </div>
+	</div>
+
+	<h3 class="title is-4">SMS spam classification and general toxic text classification</h3>
+
+	<div class="columns is-centered">
+	  <div class="column">
+		<p>The toxic content dataset used in our experiments is the IBM toxic text dataset<sup><a href="https://www.ml-exchange.org/models/max-toxic-comment-classifier/">1</a></sup> wherein a toxic text will be assigned with one or more toxic labels. In our experiments, a text in this dataset will be considered as toxic (positive) if it has been assigned one or more toxic labels. As a result, we got a binary dataset of 201,081 non-toxic texts and 22,468 toxic texts. Adopting the same model architecture and training process of BERT<sub>All</sub> (the binary SMS spam classifier), a model trained on 80% of this toxic text dataset has achieved a precision of 61.09%, a recall of 79.43%, and an f1-score of 69.06%, when evaluated on the left 20% texts (the toxic testing dataset).
+		We then tried to apply the SMS spam detection model BERT<sub>All</sub> to predicting the toxic testing dataset. However, it only achieved a precision of 5.55%, a recall of 30.21% and a F1-score of 9.38%, which means the poor portability of the SMS spam classifier on toxic text classification.
+		Reversely and similarly, when evaluated on the SMS spam testing dataset, the toxic binary classifier also achieved a poor performance (a precision of 53.03%, a recall of 0.47% and the F1-score of 0.94%).</p>
+  
+	  </div>
+	</div>
+  </section>
+<!-- <section class="section" id="Vulnerabilities">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Vulnerabilities</h2>
+    <p>
+      We have identified <strong>a set of protocol vulnerabilities in Oray's PFS implementation</strong>, which incur non-negligible security risks to both PFWs and the local networks on which PFWs are hosted. <strong>The identified security vulnerabilities have been responsibly disclosed to Oray with acknowledgments received.</strong>
+    </p>
+    <p>
+      <strong>Against the data plane communication</strong>&nbsp;&nbsp; The tunnel between the Oray data server and the Oray agent utilizes a customized application protocol over TCP, by adopting the HTTP protocol with a message authentication code (MAC). However, the MAC can be easily calculated without the need of knowing any secrets, as it only checks the length of the payload. This allows any intermediate hop between the Oray agent and the Oray server to perform a man-in-the-middle attack.
+    </p>
+    <p>
+      <strong>Against the control plane communication</strong>&nbsp;&nbsp; When port forwarding rules are initially pulled from the control server, HTTPS is adopted. However, we have found that the Oray agent fails to perform proper server certificate verification, and an MITM attacker can successfully intercept this HTTPS connection and modify all the port forwarding rules that are passed from the control server to the agent. This allows an attacker to use the PFS agent program as a stepping stone to expose internal infrastructure co-located with a PFW.
+    </p>
+  </div>
+</section> -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{li2024spamdam,
+	title={SpamDam: Towards Privacy-Preserving and Adversary-Resistant SMS Spam Detection}, 
+	author={Yekai Li and Rufan Zhang and Wenxin Rong and Xianghang Mi},
+	year={2024},
+	eprint={2404.09481},
+	archivePrefix={arXiv},
+	primaryClass={cs.CR}
+  }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
