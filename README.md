@@ -13,7 +13,7 @@ Leveraging *SpamDam*, we have compiled over 76K SMS spam messages from Twitter a
 
 ## Datasets Release
 
-We will provide all the dataset we used in this paper for either for training or for testing.
+The datasets we used in this paper for both training and testing can be found here: https://github.com/ChaseSecurity/SpamDam/tree/main/SpamDam_Dataset 
 
 ## Code Release
 
